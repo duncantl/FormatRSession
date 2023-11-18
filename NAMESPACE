@@ -1,1 +1,6 @@
-exportPattern(".*")
+export(getCode)
+export(asRdbTranscript)
+export(toFile)
+
+S3method(toFile, XMLSession)
+
