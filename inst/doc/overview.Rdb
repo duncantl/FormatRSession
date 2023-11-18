@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<article xmlns:r="http://www.r-project.org"
+         xmlns:xi="http://www.w3.org/2003/XInclude"
+	 xmlns:omg="http://www.omegahat.org">
+
+<articleinfo>
+
+<title>Overview of the <r:pkg>FormatSession</r:pkg> Package</title>
+
+<author><firstname>Duncan</firstname><surname>Temple Lang</surname>
+  <affiliation><orgname>University of California at Davis</orgname>
+               <orgdiv>Department of Statistics</orgdiv>
+  </affiliation>
+</author>
+</articleinfo>
+
+<section>
+<title></title>
+
+<para>
+This package contains basic functionality for processing the
+transcript of an <r/> session (e.g in an Emacs shell/<r/> buffer).
+One use we make of this is to format and display an <r/> session from a class as
+formatted <html/>.  The functionality however identifies and extracts
+the <r/> code and optionally the output from each command.  We can
+then analyze/process the code (e.g. with
+<omg:pkg>CodeDepends</omg:pkg>) and/our output the session in a
+formatted manner.  We can create a <docbook/> representation of the
+code (and output) and then we can annotate this with text.  We can
+then convert that format to <html/> (or another format).
+</para>
+<para>
+This package contains an R script that can be used
+in a shell/make command to convert the raw session text
+to HTML or an Rdb file which can then be annotated with text, etc.
+There is also a <file>GNUmakefile</file> to 
+</para>
+<para>
+We use the function <r:func>getCode</r:func> 
+to read the raw text containing a session content from a file.
+That file contains the code, the output any messages and error information.
+We can ignore the output and the errors if we want.
+We can also specify the prompt to use to identify the R commands.
+</para>
+
+
+
+<para>
+We use <r:func>asRdbTranscript</r:func> to convert
+the session (as returned by <r:func>getCode</r:func>)
+to a <r/>-<docbook/> <xml/> document.
+</para>
+
+
+</section>
+<section>
+<title></title>
+
+<para>
+<r:code>
+library(FormatSession)
+k = getCode("Session4")
+</r:code>
+<r:code>
+
+sc = new("Script", .Data = sapply(k, function(x) parse(text = x)))
+</r:code>
+</para>
+</section>
+</article>

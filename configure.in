@@ -1,0 +1,5 @@
+AC_INIT(DESCRIPTION)
+
+AC_SUBST(R_PACKAGE_DIR)
+
+AC_OUTPUT(inst/make/GNUmakefile)

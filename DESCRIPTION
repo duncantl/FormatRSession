@@ -1,0 +1,8 @@
+Package: FormatSession
+Version: 0.1-0
+Title:  Process R session code and output
+Description: This package provides facilities
+  to process and format an R session transcript.
+Author: Duncan Temple Lang
+Maintainer: Duncan Temple Lang <duncan@r-project.org>
+License: BSD
