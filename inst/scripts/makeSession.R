@@ -1,4 +1,5 @@
-source("~/Classes/Davis/Tools/extractRCode.R")
+# source("~/Classes/Davis/Tools/extractRCode.R")
+library(FormatSession)
 input = commandArgs(TRUE)
 
 if(length(input) == 1)
