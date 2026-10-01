@@ -4,3 +4,4 @@ export(toFile)
 
 S3method(toFile, XMLSession)
 
+export(toMd, toR)
