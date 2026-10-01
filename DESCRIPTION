@@ -1,5 +1,5 @@
 Package: FormatSession
-Version: 0.1-0
+Version: 0.2-0
 Title:  Process R session code and output
 Description: This package provides facilities
   to process and format an R session transcript.
