@@ -37,7 +37,7 @@ function(filename, txt = readLines(filename),
    if(omit)
        ans = ans[!is.na(ans) & ans!= ""]
 
-   ans = trimws()
+   ans = trimws(ans)
    
    structure(ans, class = if(output) "SessionCodeWithOutput" else "SessionCode",
                   infile = filename)
