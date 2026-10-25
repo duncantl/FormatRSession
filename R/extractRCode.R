@@ -52,7 +52,12 @@ function(lines, prompt = c("^> ", "^\\+ "), dropErrors = TRUE,
 {
   if(dropErrors && length(lines) > 1 && grepl("^Error", lines[2]))
     return("")
-    
+
+  #  In RSessionScript was
+  #          gsub(sprintf("^%s", prompt[1]), "", lines[1])
+  #  i.e. note the ^ that is not here.
+  # Same with the next grep in the line below.
+  # And with the e = if() gsub(sprintf("^%s")
   lines[1] = gsub(sprintf("%s", prompt[1]), "", lines[1], perl = TRUE)
   i = grep(sprintf("%s", prompt[2]), lines[-1], perl = TRUE)
   rest = lines[ - c(1, i) ]
