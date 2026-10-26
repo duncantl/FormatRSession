@@ -1,0 +1,25 @@
+ifndef DYN_DOCS
+ DYN_DOCS=$(HOME)/Classes/StatComputing/XDynDocs/inst
+endif
+
+-include $(DYN_DOCS)/Make/Makefile
+
+# Need to make this the installed location.
+ifndef 
+ MAKE_SESSION_SCRIPT=@R_PACKAGE_DIR@/scripts/makeSession.R
+endif
+
+%.Rdb: %
+	$(R_HOME)/bin/Rscript $(MAKE_SESSION_SCRIPT) $< $@
+
+%.Rdb: %.Rsession
+	$(R_HOME)/bin/Rscript $(MAKE_SESSION_SCRIPT) $< $@
+
+
+%.md: %.Rsession
+
+Rsession.md: Rsession
+	Rscript -e 'library(FormatSession); toMd(getCode("Rsession"), "Rsession.md")'
+
+Rsession.R: Rsession
+	Rscript -e 'library(FormatSession); cat(getCode("Rsession"), file = "Rsession.R", sep = "\n\n")'
